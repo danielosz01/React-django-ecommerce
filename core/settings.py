@@ -10,6 +10,10 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
+import django
+from django.utils.encoding import force_str
+django.utils.encoding.force_text = force_str
+
 from pathlib import Path
 import os
 import environ
@@ -62,7 +66,7 @@ THIRD_PARTY_APPS=[
 
 INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS + ECOMMERCE_APPS + THIRD_PARTY_APPS
 
-CKEDITOR_CONFIGS = {K}
+
 
 CKEDITOR_CONFIGS = {
     'default': {
@@ -113,8 +117,11 @@ WSGI_APPLICATION = "core.wsgi.application"
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
-    'default': env.db('DATABASE_URLS', default='postgres:///tees'),
+    'default': env.db('DATABASE_URL', default='postgres:///tees'),
 }
+
+
+
 DATABASES['default']['ATOMIC_REQUESTS'] = True
 
 CORS_ORIGIN_WHITELIST = [
