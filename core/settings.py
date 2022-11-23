@@ -10,6 +10,11 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
+import django
+from django.utils.encoding import force_str
+django.utils.encoding.force_text = force_str
+
+
 from pathlib import Path
 import os
 import environ
@@ -62,7 +67,6 @@ THIRD_PARTY_APPS=[
 
 INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS + ECOMMERCE_APPS + THIRD_PARTY_APPS
 
-CKEDITOR_CONFIGS = {K}
 
 CKEDITOR_CONFIGS = {
     'default': {
