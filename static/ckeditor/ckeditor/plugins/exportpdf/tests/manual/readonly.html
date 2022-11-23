@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 <div id="editor">
 	<p>This editor is read-only.</p>
@@ -16,3 +17,23 @@
 		editor.setReadOnly( !editor.readOnly );
 	} );
 </script>
+=======
+
+<div id="editor">
+	<p>This editor is read-only.</p>
+</div>
+
+<button id="toggle">Toggle read-only mode</button>
+
+<script>
+	exportPdfUtils.initManualTest();
+
+	var editor = CKEDITOR.replace( 'editor', exportPdfUtils.getDefaultConfig( 'manual', {
+		readOnly: true
+	} ) );
+
+	CKEDITOR.document.getById( 'toggle' ).on( 'click', function() {
+		editor.setReadOnly( !editor.readOnly );
+	} );
+</script>
+>>>>>>> 0596abaeee1dc92cce6b86e800ffd8ec5252ed9c
